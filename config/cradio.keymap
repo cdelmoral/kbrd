@@ -15,7 +15,7 @@
 #define CNTRLS  4
 
 / { 
-        macros {
+/*        macros {
             scrn_lck: scrn_lck {
                 compatible = "zmk, behavior-macro";
                 label = "Screen_Lock";
@@ -72,6 +72,7 @@
                 bindings = <&kp LCTRL &kp N5>;
             };
         };
+        */
 
         keymap {
                 compatible = "zmk,keymap";
@@ -85,7 +86,7 @@
 		>;
 		};
         
-       		icons_layer {
+/*       		icons_layer {
 		bindings = <
 		&kp EXCL     &kp AT       &kp LBKT       &kp RBKT       &kp PRCNT           &scrn_lck    &none       &kp SQT       &kp BSLH       &kp ASTRK 
         &kp AMPS     &kp PIPE     &kp LPAR       &kp RPAR       &kp EQUAL           &emojis      &none       &kp DQT       &kp HASH       &kp PLUS
@@ -120,5 +121,6 @@
                                            &kp C_PREV   &kp C_NEXT          &trans    &kp C_PP 
 		>;
 		};
+*/
 	};
 };
