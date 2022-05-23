@@ -117,7 +117,7 @@
 		&trans     &trans     &trans       &trans       &trans           &trans    &trans       &trans       &trans       &trans 
         &scrn_one  &scrn_two  &scrn_three  &scrn_four   &scrn_five       &trans    &trans       &trans       &trans       &trans
 		&trans     &trans     &trans       &trans       &trans			 &trans    &trans       &trans       &trans       &trans
-                                           &C_PREV      &C_NEXT          &trans    &kp C_PP 
+                                           &kp C_PREV   &kp C_NEXT          &trans    &kp C_PP 
 		>;
 		};
 	};
