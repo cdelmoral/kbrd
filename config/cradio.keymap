@@ -26,49 +26,49 @@
             emojis: behavior_emojis {
                 compatible = "zmk,behavior-macro";
                 label = "Emojis";
-                #binding-cells = <1>;
+                #binding-cells = <0>;
                 bindings = <&kp LCTRL &kp LCMD &kp SPACE>;
             };
 
             one_pass: behavior_one_pass {
                 compatible = "zmk,behavior-macro";
                 label = "One_Password";
-                #binding-cells = <2>;
+                #binding-cells = <0>;
                 bindings = <&kp LCMD &kp LSHFT &kp X>;
             };
 
             scrn_one: behavior_scrn_one {
                 compatible = "zmk,behavior-macro";
                 label = "Screen_One";
-                #binding-cells = <3>;
+                #binding-cells = <0>;
                 bindings = <&kp LCTRL &kp N1>;
             };
 
             scrn_two: behavior_scrn_two {
                 compatible = "zmk,behavior-macro";
                 label = "Screen_Two";
-                #binding-cells = <4>;
+                #binding-cells = <0>;
                 bindings = <&kp LCTRL &kp N2>;
             };
 
             scrn_three: behavior_scrn_three {
                 compatible = "zmk,behavior-macro";
                 label = "Screen_Three";
-                #binding-cells = <5>;
+                #binding-cells = <0>;
                 bindings = <&kp LCTRL &kp N3>;
             };
 
             scrn_four: behavior_scrn_four {
                 compatible = "zmk,behavior-macro";
                 label = "Screen_Four";
-                #binding-cells = <6>;
+                #binding-cells = <0>;
                 bindings = <&kp LCTRL &kp N4>;
             };
 
             scrn_five: behavior_scrn_five {
                 compatible = "zmk,behavior-macro";
                 label = "Screen_Five";
-                #binding-cells = <7>;
+                #binding-cells = <0>;
                 bindings = <&kp LCTRL &kp N5>;
             };
         };
