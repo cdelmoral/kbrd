@@ -15,112 +15,112 @@
 #define CNTRLS  4
 
 / { 
-/*        macros {
-            scrn_lck: scrn_lck {
+        macros {
+            scrn_lck: behavior_scrn_lck {
                 compatible = "zmk, behavior-macro";
                 label = "Screen_Lock";
                 #binding-cells = <0>;
                 bindings = <&kp LCTRL &kp LCMD &kp Q>;
             };
 
-            emojis: emojis {
+            emojis: behavior_emojis {
                 compatible = "zmk, behavior-macro";
                 label = "Emojis";
-                #binding-cells = <0>;
+                #binding-cells = <1>;
                 bindings = <&kp LCTRL &kp LCMD &kp SPACE>;
             };
 
-            one_pass: one_pass {
+            one_pass: behavior_one_pass {
                 compatible = "zmk, behavior-macro";
                 label = "One_Password";
-                #binding-cells = <0>;
+                #binding-cells = <2>;
                 bindings = <&kp LCMD &kp LSHFT &kp X>;
             };
 
-            scrn_one: scrn_one {
+            scrn_one: behavior_scrn_one {
                 compatible = "zmk, behavior-macro";
                 label = "Screen_One";
-                #binding-cells = <0>;
+                #binding-cells = <3>;
                 bindings = <&kp LCTRL &kp N1>;
             };
 
-            scrn_two: scrn_two {
+            scrn_two: behavior_scrn_two {
                 compatible = "zmk, behavior-macro";
                 label = "Screen_Two";
-                #binding-cells = <0>;
+                #binding-cells = <4>;
                 bindings = <&kp LCTRL &kp N2>;
             };
 
-            scrn_three: scrn_three {
+            scrn_three: behavior_scrn_three {
                 compatible = "zmk, behavior-macro";
                 label = "Screen_Three";
-                #binding-cells = <0>;
+                #binding-cells = <5>;
                 bindings = <&kp LCTRL &kp N3>;
             };
 
-            scrn_four: scrn_four {
+            scrn_four: behavior_scrn_four {
                 compatible = "zmk, behavior-macro";
                 label = "Screen_Four";
-                #binding-cells = <0>;
+                #binding-cells = <6>;
                 bindings = <&kp LCTRL &kp N4>;
             };
 
-            scrn_five: scrn_five {
+            scrn_five: behavior_scrn_five {
                 compatible = "zmk, behavior-macro";
                 label = "Screen_Five";
-                #binding-cells = <0>;
+                #binding-cells = <7>;
                 bindings = <&kp LCTRL &kp N5>;
             };
         };
-        */
+
 
         keymap {
                 compatible = "zmk,keymap";
                 
-       		default_layer {
-		bindings = <
-		&kp Q       &kp W       &kp E         &kp R         &kp T           &kp Y           &kp U       &kp I         &kp O        &kp P 
-		&mt RCTRL A &kp S       &lt DIRS D    &lt NUMBERS F &kp G           &kp H           &lt ICONS J &lt CNTRLS K  &kp L        &kp LCTRL SEMI
-		&mt LALT Z  &mt LCMD X  &kp C         &kp V         &kp B			&kp N           &kp M       &kp COMMA     &mt RCMD DOT &mt RALT SLASH
-                                              &kp BSPC      &mt LSHFT ESC  	&mt RSHFT RET   &kp SPACE 
-		>;
-		};
+            default_layer {
+        bindings = <
+        &kp Q       &kp W       &kp E         &kp R         &kp T           &kp Y           &kp U       &kp I         &kp O        &kp P
+        &mt LCTRL A &kp S       &lt DIRS D    &lt NUMBERS F &kp G           &kp H           &lt ICONS J &lt CNTRLS K  &kp L        &mt RCTRL SEMI
+        &mt LALT Z  &mt LCMD X  &kp C         &kp V         &kp B           &kp N           &kp M       &kp COMMA     &mt RCMD DOT &mt RALT SLASH
+                                              &kp BSPC      &mt LSHFT ESC   &mt RSHFT RET   &kp SPACE
+        >;
+        };
         
-/*       		icons_layer {
-		bindings = <
-		&kp EXCL     &kp AT       &kp LBKT       &kp RBKT       &kp PRCNT           &scrn_lck    &none       &kp SQT       &kp BSLH       &kp ASTRK 
+            icons_layer {
+        bindings = <
+        &kp EXCL     &kp AT       &kp LBKT       &kp RBKT       &kp PRCNT           &scrn_lck    &none       &kp SQT       &kp BSLH       &kp ASTRK
         &kp AMPS     &kp PIPE     &kp LPAR       &kp RPAR       &kp EQUAL           &emojis      &none       &kp DQT       &kp HASH       &kp PLUS
-		&kp TILDE    &kp CARET    &kp LBRC       &kp RBRC       &kp UNDER			&one_pass    &none       &kp GRAVE     &kp DLLR       &kp MINUS
-                                                 &kp BSPC       &kp DEL  		    &kp TAB      &kp SPACE 
-		>;
-		};
+        &kp TILDE    &kp CARET    &kp LBRC       &kp RBRC       &kp UNDER           &one_pass    &none       &kp GRAVE     &kp DLLR       &kp MINUS
+                                                 &kp BSPC       &kp DEL             &kp TAB      &kp SPACE
+        >;
+        };
 
-       		numbers_layer {
-		bindings = <
-		&trans     &trans     &trans       &trans       &trans           &trans    &kp N1       &kp N2       &kp N3       &kp ASTRK 
+            numbers_layer {
+        bindings = <
+        &trans     &trans     &trans       &trans       &trans           &trans    &kp N1       &kp N2       &kp N3       &kp ASTRK
         &trans     &trans     &trans       &trans       &trans           &trans    &kp N4       &kp N5       &kp N6       &kp PLUS
-		&trans     &trans     &trans       &trans       &trans			 &trans    &kp N7       &kp N8       &kp N9       &kp MINUS
+        &trans     &trans     &trans       &trans       &trans           &trans    &kp N7       &kp N8       &kp N9       &kp MINUS
                                            &kp BSPC     &mt LSHFT ESC    &kp N0    &kp SPACE 
-		>;
-		};
+        >;
+        };
 
-       		directions_layer {
-		bindings = <
-		&trans     &trans     &trans       &trans       &trans           &trans    &trans       &kp UP       &trans       &trans 
+            directions_layer {
+        bindings = <
+        &trans     &trans     &trans       &trans       &trans           &trans    &trans       &kp UP       &trans       &trans 
         &trans     &trans     &trans       &trans       &trans           &trans    &kp LEFT     &kp DOWN     &kp RIGHT    &trans
-		&trans     &trans     &trans       &trans       &trans			 &trans    &trans       &trans       &trans       &trans
+        &trans     &trans     &trans       &trans       &trans           &trans    &trans       &trans       &trans       &trans
                                            &trans       &trans           &trans    &trans 
-		>;
-		};
+        >;
+        };
 
-       		controls_layer {
-		bindings = <
-		&trans     &trans     &trans       &trans       &trans           &trans    &trans       &trans       &trans       &trans 
+            controls_layer {
+        bindings = <
+        &trans     &trans     &trans       &trans       &trans           &trans    &trans       &trans       &trans       &trans 
         &scrn_one  &scrn_two  &scrn_three  &scrn_four   &scrn_five       &trans    &trans       &trans       &trans       &trans
-		&trans     &trans     &trans       &trans       &trans			 &trans    &trans       &trans       &trans       &trans
+        &trans     &trans     &trans       &trans       &trans           &trans    &trans       &trans       &trans       &trans
                                            &kp C_PREV   &kp C_NEXT          &trans    &kp C_PP 
-		>;
-		};
-*/
-	};
+        >;
+        };
+
+    };
 };
