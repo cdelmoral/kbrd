@@ -10,12 +10,20 @@
 
 / { 
   macros {
-    damps: damps {
-      label = "DOUBLE_AMPS";
+    excl_eq: excl_eq {
+      label = "EXCL_EQ";
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-      bindings = <&kp AMPS &kp AMPS>;
+      bindings = <&kp EXCL &kp EQUAL>;
     };
+
+    tmux: tmux {
+      label = "TMUX";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp B>, <&macro_release &kp LCTRL>;
+    };
+
   };
 
   behaviors {
@@ -43,12 +51,12 @@
       bindings = <&kp LBKT>, <&kp RBKT>;
     };
 
-    td_amps: tap_dance_amps {
+    td_excl: tap_dance_excl {
       compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_AMPS";
+      label = "TAP_DANCE_EXCL";
       #binding-cells = <0>;
       tapping-term-ms = <200>;
-      bindings = <&kp AMPS>, <&damps>;
+      bindings = <&kp EXCL>, <&excl_eq>;
     };
 
     hm: homerow_mods {
@@ -64,6 +72,12 @@
 
   combos {
     compatible = "zmk,combos";
+
+    combo_tmux {
+      timeout-ms = <20>;
+      key-positions = <2 3>;
+      bindings = <&tmux>;
+    };
 
     combo_esc {
       timeout-ms = <20>;
@@ -98,8 +112,8 @@
 
     layer_1 {
       bindings = <
-        &kp EXCL  &kp CARET  &kp TILDE  &kp ASTRK  &td_bkt            &kp N0     &kp N1     &kp N2  &kp N3  &kp DOT
-        &td_amps  &kp UNDER  &kp MINUS  &kp SQT    &kp LPAR           &kp PLUS   &kp N4     &kp N5  &kp N6  &kp SEMI
+        &td_excl  &kp CARET  &kp TILDE  &kp ASTRK  &td_bkt            &kp N0     &kp N1     &kp N2  &kp N3  &kp DOT
+        &kp AMPS  &kp UNDER  &kp MINUS  &kp SQT    &kp LPAR           &kp PLUS   &kp N4     &kp N5  &kp N6  &kp SEMI
         &kp PIPE  &kp PRCNT  &kp HASH   &kp GRAVE  &kp LBRC           &kp EQUAL  &kp N7     &kp N8  &kp N9  &kp SLASH
                                         &kp BSPC   &kp LSHFT          &mo L1     &kp SPACE
       >;
