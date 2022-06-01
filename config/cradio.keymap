@@ -56,10 +56,10 @@
 
     layer_0 {
       bindings = <
-        &kp Q       &kp W       &kp E        &kp R        &kp T           &kp Y    &kp U        &kp I        &kp O       &kp P
-        &hm LALT A  &hm LCMD S  &hm LCTRL D  &hm LSHFT F  &kp G           &kp H    &hm RSHFT J  &hm RCTRL K  &hm RCMD L  &hm RALT SEMI
-        &kp Z       &kp X       &kp C        &kp V        &kp B           &kp N    &kp M        &kp COMMA    &kp DOT     &kp SLASH
-                                              &kp BSPC     &kp LSHFT       &mo L1   &kp SPACE
+        &kp Q        &kp W       &kp E  &kp R     &kp T           &kp Y    &kp U       &kp I      &kp O         &kp P
+        &tda         &kp S       &kp D  &kp F     &kp G           &kp H    &kp J       &kp K      &kp L         &kp SEMI
+        &hm LCTRL Z  &hm LCMD X  &kp C  &kp V     &kp B           &kp N    &kp M       &kp COMMA  &hm LCMD DOT  &hm LCTRL SLASH
+                                        &kp BSPC  &kp LSHFT       &mo L1   &kp SPACE
       >;
     };
 
