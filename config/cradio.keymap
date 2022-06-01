@@ -14,17 +14,30 @@
       compatible = "zmk,behavior-tap-dance";
       label = "TAP_DANCE_A";
       #binding-cells = <0>;
-      tapping-term-ms = <20>;
+      tapping-term-ms = <50>;
       bindings = <&kp A>, <&kp AT>;
     };
   };
 
   combos {
     compatible = "zmk,combos";
+
     combo_esc {
       timeout-ms = <20>;
       key-positions = <12 13>;
       bindings = <&kp ESC>;
+    };
+
+    combo_enter {
+      timeout-ms = <20>;
+      key-positions = <16 17>;
+      bindings = <&kp ENTER>;
+    };
+
+    combo_tab {
+      timeout-ms = <20>;
+      key-positions = <6 7>;
+      bindings = <&kp TAB>;
     };
   };
 
