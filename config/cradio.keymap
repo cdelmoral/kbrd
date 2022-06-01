@@ -10,7 +10,7 @@
 
 / { 
   behaviors {
-    tda = tap_dance_a {
+    tda: tap_dance_a {
       compatible = "zmk,behavior-tap-dance";
       label = "TAP_DANCE_A";
       #binding-cells = <0>;
