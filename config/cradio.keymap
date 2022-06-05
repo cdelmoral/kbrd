@@ -62,7 +62,7 @@
       label = "TAP_DANCE_QT";
       #binding-cells = <0>;
       tapping-term-ms = <200>;
-      bindings = <&kp SQT>, <&kp DQT>;
+      bindings = <&hm LALT SQT>, <&kp DQT>;
     };
 
     td_excl: tap_dance_excl {
@@ -180,10 +180,10 @@
 
     layer_1 {
       bindings = <
-        &td_excl  &kp CARET  &kp TILDE  &kp ASTRK  &td_bkt            &kp N0     &kp N1     &kp N2  &kp N3  &td_dot
-        &kp AMPS  &kp UNDER  &kp MINUS  &td_qt     &td_par            &kp PLUS   &kp N4     &kp N5  &kp N6  &kp SEMI
-        &kp PIPE  &kp PRCNT  &kp HASH   &kp GRAVE  &td_brc            &kp EQUAL  &kp N7     &kp N8  &kp N9  &td_slash
-                                        &kp BSPC   &kp LSHFT          &mo L1     &kp SPACE
+        &td_excl        &kp CARET       &kp TILDE        &kp ASTRK  &td_bkt            &kp N0     &kp N1       &kp N2        &kp N3       &td_dot
+        &hm LCTRL AMPS  &hm LCMD UNDER  &hm LSHFT MINUS  &td_qt     &td_par            &kp PLUS   &hm RALT N4  &hm RSHFT N5  &hm RCMD N6  &hm RCTRL SEMI
+        &kp PIPE        &kp PRCNT       &kp HASH         &kp GRAVE  &td_brc            &kp EQUAL  &kp N7       &kp N8        &kp N9       &td_slash
+                                                         &kp BSPC   &kp LSHFT          &mo L1     &kp SPACE
       >;
     };
 
