@@ -17,12 +17,21 @@
   };
 
   behaviors {
-    tda: tap_dance_a {
+    lht: layer-hold-tap {
+        compatible = "zmk,behavior-hold-tap";
+        label = "LAYER_HOLD_TAP";
+        #binding-cells = <2>;
+        flavor = "hold-preferred";
+        tapping-term-ms = <200>;
+        bindings = <&mo>, <&to>;
+    };
+
+    td_grave: tap_dance_grave {
       compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_A";
+      label = "TAP_DANCE_GRAVE";
       #binding-cells = <0>;
-      tapping-term-ms = <150>;
-      bindings = <&kp A>, <&kp AT>;
+      tapping-term-ms = <200>;
+      bindings = <&kp GRAVE>, <&kp TILDE>;
     };
 
     tds: tap_dance_s {
@@ -62,7 +71,7 @@
       label = "TAP_DANCE_QT";
       #binding-cells = <0>;
       tapping-term-ms = <200>;
-      bindings = <&kp SQT>, <&kp DQT>;
+      bindings = <&hm LALT SQT>, <&kp DQT>;
     };
 
     td_excl: tap_dance_excl {
@@ -89,6 +98,14 @@
       bindings = <&kp SLASH>, <&kp BACKSLASH>;
     };
 
+    td_astrk: td_astrk {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_ASTRK";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp ASTRK>, <&kp HASH>;
+    };
+
     hm: homerow_mods {
       compatible = "zmk,behavior-hold-tap";
       label = "HOMEROW_MODS";
@@ -103,65 +120,47 @@
   combos {
     compatible = "zmk,combos";
 
-    combo_tmux {
+    tmux {
       timeout-ms = <20>;
-      key-positions = <2 3>;
+      key-positions = <11 12>;
       bindings = <&kp LC(B)>;
     };
 
-    combo_esc {
+    escape_key {
       timeout-ms = <20>;
       key-positions = <12 13>;
       bindings = <&kp ESC>;
     };
 
-    combo_enter {
+    enter_key {
       timeout-ms = <20>;
       key-positions = <16 17>;
       bindings = <&kp ENTER>;
     };
 
-    combo_tab {
+    tab_key {
       timeout-ms = <20>;
-      key-positions = <6 7>;
+      key-positions = <17 18>;
       bindings = <&kp TAB>;
     };
 
-    combo_lock {
+    lock_screen {
       timeout-ms = <20>;
-      key-positions = <0 1>;
+      key-positions = <27 28>;
       bindings = <&kp LC(LG(Q))>;
       layers = <0>;
     };
 
-    combo_pass {
+    one_password {
       timeout-ms = <20>;
       key-positions = <28 29>;
       bindings = <&kp LS(LG(X))>;
       layers = <0>;
     };
 
-    tog_l1_1 {
+    toggle_l2 {
       timeout-ms = <20>;
-      key-positions = <3 4>;
-      bindings = <&tog L1>;
-    };
-
-    tog_l2_1 {
-      timeout-ms = <20>;
-      key-positions = <13 14>;
-      bindings = <&tog L2>;
-    };
-
-    tog_l1_2 {
-      timeout-ms = <20>;
-      key-positions = <5 6>;
-      bindings = <&tog L1>;
-    };
-
-    tog_l2_2 {
-      timeout-ms = <20>;
-      key-positions = <15 16>;
+      key-positions = <18 19>;
       bindings = <&tog L2>;
     };
   };
@@ -171,19 +170,19 @@
 
     layer_0 {
       bindings = <
-        &kp Q        &kp W       &kp E  &kp R     &kp T           &kp Y    &kp U       &kp I      &kp O         &kp P
-        &tda         &tds        &kp D  &kp F     &kp G           &kp H    &kp J       &kp K      &kp L         &kp SEMI
-        &hm LCTRL Z  &hm LCMD X  &kp C  &kp V     &kp B           &kp N    &kp M       &kp COMMA  &hm LCMD DOT  &hm LCTRL SLASH
-                                        &kp BSPC  &kp LSHFT       &mo L1   &kp SPACE
+        &kp Q        &kp W       &kp E  &kp R     &kp T           &kp Y       &kp U       &kp I      &kp O         &kp P
+        &kp A        &kp S       &kp D  &kp F     &kp G           &kp H       &kp J       &kp K      &kp L         &lt L2 SEMI
+        &hm LCTRL Z  &hm LCMD X  &kp C  &kp V     &kp B           &kp N       &kp M       &kp COMMA  &hm LCMD DOT  &hm LCTRL SLASH
+                                        &kp BSPC  &kp LSHFT       &lht L1 L1  &kp SPACE
       >;
     };
 
     layer_1 {
       bindings = <
-        &td_excl  &kp CARET  &kp TILDE  &kp ASTRK  &td_bkt            &kp N0     &kp N1     &kp N2  &kp N3  &td_dot
-        &kp AMPS  &kp UNDER  &kp MINUS  &td_qt     &td_par            &kp PLUS   &kp N4     &kp N5  &kp N6  &kp SEMI
-        &kp PIPE  &kp PRCNT  &kp HASH   &kp GRAVE  &td_brc            &kp EQUAL  &kp N7     &kp N8  &kp N9  &td_slash
-                                        &kp BSPC   &kp LSHFT          &mo L1     &kp SPACE
+        &td_excl        &kp AT          &kp DOLLAR       &td_astrk  &td_bkt            &kp N0     &kp N1       &kp N2        &kp N3       &td_dot
+        &hm LCTRL AMPS  &hm LCMD UNDER  &hm LSHFT MINUS  &td_qt     &td_par            &kp PLUS   &hm RALT N4  &hm RSHFT N5  &hm RCMD N6  &hm RCTRL SEMI
+        &kp PIPE        &kp PRCNT       &kp CARET        &td_grave  &td_brc            &kp EQUAL  &kp N7       &kp N8        &kp N9       &td_slash
+                                                         &kp BSPC   &kp LSHFT          &to L0     &kp SPACE
       >;
     };
 
