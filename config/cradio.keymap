@@ -120,65 +120,47 @@
   combos {
     compatible = "zmk,combos";
 
-    combo_tmux {
+    tmux {
       timeout-ms = <20>;
-      key-positions = <2 3>;
+      key-positions = <11 12>;
       bindings = <&kp LC(B)>;
     };
 
-    combo_esc {
+    escape_key {
       timeout-ms = <20>;
       key-positions = <12 13>;
       bindings = <&kp ESC>;
     };
 
-    combo_enter {
+    enter_key {
       timeout-ms = <20>;
       key-positions = <16 17>;
       bindings = <&kp ENTER>;
     };
 
-    combo_tab {
+    tab_key {
       timeout-ms = <20>;
-      key-positions = <6 7>;
+      key-positions = <17 18>;
       bindings = <&kp TAB>;
     };
 
-    combo_lock {
+    lock_screen {
       timeout-ms = <20>;
-      key-positions = <0 1>;
+      key-positions = <27 28>;
       bindings = <&kp LC(LG(Q))>;
       layers = <0>;
     };
 
-    combo_pass {
+    one_password {
       timeout-ms = <20>;
       key-positions = <28 29>;
       bindings = <&kp LS(LG(X))>;
       layers = <0>;
     };
 
-    tog_l1_1 {
+    toggle_l2 {
       timeout-ms = <20>;
-      key-positions = <3 4>;
-      bindings = <&tog L1>;
-    };
-
-    tog_l2_1 {
-      timeout-ms = <20>;
-      key-positions = <13 14>;
-      bindings = <&tog L2>;
-    };
-
-    tog_l1_2 {
-      timeout-ms = <20>;
-      key-positions = <5 6>;
-      bindings = <&tog L1>;
-    };
-
-    tog_l2_2 {
-      timeout-ms = <20>;
-      key-positions = <15 16>;
+      key-positions = <18 19>;
       bindings = <&tog L2>;
     };
   };
