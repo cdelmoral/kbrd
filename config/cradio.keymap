@@ -17,12 +17,12 @@
   };
 
   behaviors {
-    tda: tap_dance_a {
+    td_grave: tap_dance_grave {
       compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_A";
+      label = "TAP_DANCE_GRAVE";
       #binding-cells = <0>;
-      tapping-term-ms = <150>;
-      bindings = <&kp A>, <&kp AT>;
+      tapping-term-ms = <200>;
+      bindings = <&kp GRAVE>, <&kp TILDE>;
     };
 
     tds: tap_dance_s {
@@ -87,6 +87,14 @@
       #binding-cells = <0>;
       tapping-term-ms = <200>;
       bindings = <&kp SLASH>, <&kp BACKSLASH>;
+    };
+
+    td_astrk: td_astrk {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_ASTRK";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp ASTRK>, <&kp HASH>;
     };
 
     hm: homerow_mods {
@@ -172,7 +180,7 @@
     layer_0 {
       bindings = <
         &kp Q        &kp W       &kp E  &kp R     &kp T           &kp Y    &kp U       &kp I      &kp O         &kp P
-        &tda         &tds        &kp D  &kp F     &kp G           &kp H    &kp J       &kp K      &kp L         &lt L2 SEMI
+        &kp A        &kp S       &kp D  &kp F     &kp G           &kp H    &kp J       &kp K      &kp L         &lt L2 SEMI
         &hm LCTRL Z  &hm LCMD X  &kp C  &kp V     &kp B           &kp N    &kp M       &kp COMMA  &hm LCMD DOT  &hm LCTRL SLASH
                                         &kp BSPC  &kp LSHFT       &mo L1   &kp SPACE
       >;
@@ -180,9 +188,9 @@
 
     layer_1 {
       bindings = <
-        &td_excl        &kp CARET       &kp TILDE        &kp ASTRK  &td_bkt            &kp N0     &kp N1       &kp N2        &kp N3       &td_dot
+        &td_excl        &kp AT          &kp DOLLAR       &td_astrk  &td_bkt            &kp N0     &kp N1       &kp N2        &kp N3       &td_dot
         &hm LCTRL AMPS  &hm LCMD UNDER  &hm LSHFT MINUS  &td_qt     &td_par            &kp PLUS   &hm RALT N4  &hm RSHFT N5  &hm RCMD N6  &hm RCTRL SEMI
-        &kp PIPE        &kp PRCNT       &kp HASH         &kp GRAVE  &td_brc            &kp EQUAL  &kp N7       &kp N8        &kp N9       &td_slash
+        &kp PIPE        &kp PRCNT       &kp CARET        &td_grave  &td_brc            &kp EQUAL  &kp N7       &kp N8        &kp N9       &td_slash
                                                          &kp BSPC   &kp LSHFT          &mo L1     &kp SPACE
       >;
     };
