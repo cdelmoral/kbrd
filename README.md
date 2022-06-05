@@ -6,7 +6,7 @@ A 34 keys split keyboard layout implemented with [ZMK](https://zmk.dev/).
 
 The layout is designed for a keyboard with 3x5 main keys plus 2 thumb keys per split (e.g. [Sweep Keyboard](https://github.com/davidphilipbarr/Sweep)) and optimized to use VIM and tmux in macOS.
 
-![keyboard-layout (1)](https://user-images.githubusercontent.com/5050295/171513459-c54d66d3-cc4a-40df-a0b2-c8b992cabeca.png)
+![keyboard-layout](images/keyboard-layout.png)
 
 ## References
 
