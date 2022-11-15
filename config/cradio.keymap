@@ -209,30 +209,6 @@
       key-positions = <18 19>;
       bindings = <&tog L2>;
     };
-
-    /**
-     * Toggle layer 3 (Age of Empires II layer) when keys 8 (O) and 9 (P) are tapped.
-     *
-     * Only enabled for layers 0 and 3.
-     */
-    toggle_l3 {
-      timeout-ms = <20>;
-      key-positions = <8 9>;
-      bindings = <&tog L3>;
-      layers = <0 3>;
-    };
-
-    /**
-     * Key press `DEL` when keys 11 (S) and 12 (D) are tapped.
-     *
-     * Only enabled for layer 3 (Age of Empires II layer).
-     */
-    del {
-        timeout-ms = <20>;
-        key-positions = <11 12>;
-        bindings = <&kp DEL>;
-        layers = <3>;
-    };
   };
 
   keymap {
@@ -272,30 +248,6 @@
         &kp LCTRL   &kp LCMD    &kp LSHFT   &kp LALT    &none            &none         &kp LEFT      &kp DOWN      &kp RIGHT     &none
         &none       &kp LG(X)   &kp LG(C)   &kp LG(V)   &none            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
                                             &kp BSPC    &kp LSHFT        &kp SPACE     &to L0
-      >;
-    };
-
-    /**
-     * Age of Empires II layer with characters and specific layers modifiers.
-     */
-    layer_3 {
-      bindings = <
-        &kp Q  &kp W  &kp E  &kp R        &kp T        &kp Y       &kp U       &kp I      &kp O    &kp P
-        &kp A  &kp S  &kp D  &hm LSHFT F  &kp G        &kp H       &kp J       &kp K      &kp L    &kp SEMI
-        &kp Z  &kp X  &kp C  &kp V        &kp B        &kp N       &kp M       &kp COMMA  &kp DOT  &kp SLASH
-                             &kp BSPC     &mo L4       &kp SPACE   &to L0
-      >;
-    };
-
-    /**
-     * Age of Empires II layer with control group controls.
-     */
-    layer_4 {
-      bindings = <
-        &kp LC(N4)  &kp LC(N3)  &kp LC(N2)  &kp LC(N1)  &kp LC(N5)       &none  &none  &none  &none  &none
-        &kp N4      &kp N3      &kp N2      &kp N1      &kp N5           &none  &none  &none  &none  &none
-        &none       &none       &none       &none       &none            &none  &none  &none  &none  &none
-                                            &none       &none            &none  &to L0
       >;
     };
   };
