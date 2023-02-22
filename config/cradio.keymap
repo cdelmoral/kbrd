@@ -7,6 +7,9 @@
 #define L2 2
 #define L3 3
 
+#define KEYS_R 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33
+#define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31
+
 &sk {
   release-after-ms = <5000>;
 };
@@ -62,12 +65,12 @@
         compatible = "zmk,behavior-hold-tap";
         label = "LEFT_POSITIONAL_HOLD_TAP";
         #binding-cells = <2>;
-        flavor = "tap-unless-interrupted";
+        flavor = "balanced";
         tapping-term-ms = <300>;
         quick-tap-ms = <200>;
         global-quick-tap;
         bindings = <&kp>, <&kp>;
-        hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33>;
+        hold-trigger-key-positions = <KEYS_R>;
     };
 
     /**
@@ -77,12 +80,12 @@
         compatible = "zmk,behavior-hold-tap";
         label = "RIGHT_POSITIONAL_HOLD_TAP";
         #binding-cells = <2>;
-        flavor = "tap-unless-interrupted";
+        flavor = "balanced";
         tapping-term-ms = <300>;
         quick-tap-ms = <200>;
         global-quick-tap;
         bindings = <&kp>, <&kp>;
-        hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31>;
+        hold-trigger-key-positions = <KEYS_L>;
     };
 
     /**
@@ -92,12 +95,12 @@
         compatible = "zmk,behavior-hold-tap";
         label = "LEFT_POSITIONAL_MOMENTARY_LAYER_TAP";
         #binding-cells = <2>;
-        flavor = "tap-unless-interrupted";
+        flavor = "balanced";
         tapping-term-ms = <300>;
         quick-tap-ms = <200>;
         global-quick-tap;
         bindings = <&mo>, <&kp>;
-        hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33>;
+        hold-trigger-key-positions = <KEYS_R>;
     };
 
     /**
@@ -107,12 +110,12 @@
         compatible = "zmk,behavior-hold-tap";
         label = "RIGHT_POSITIONAL_MOMENTARY_LAYER_TAP";
         #binding-cells = <2>;
-        flavor = "tap-unless-interrupted";
+        flavor = "balanced";
         tapping-term-ms = <300>;
         quick-tap-ms = <200>;
         global-quick-tap;
         bindings = <&mo>, <&kp>;
-        hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31>;
+        hold-trigger-key-positions = <KEYS_L>;
     };
 
     /**
