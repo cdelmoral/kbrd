@@ -264,10 +264,10 @@
      */
     layer_2 {
       bindings = <
-        &none  &none     &kp UP    &none      &none            &kp ASTRK   &kp N7      &kp N8  &kp N9  &kp MINUS
-        &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none            &kp SLASH   &kp N4      &kp N5  &kp N6  &kp PLUS
-        &none  &none     &none     &none      &none            &kp N0      &kp N1      &kp N2  &kp N3  &kp DOT
-                                   &kp BSPC   &kp LSHFT        &kp SPACE   &tml L1 L0
+        &none         &none     &kp UP    &none      &none             &kp ASTRK   &kp N7      &kp N8  &kp N9  &kp MINUS
+        &kp LA(LEFT)  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LA(RIGHT)     &kp SLASH   &kp N4      &kp N5  &kp N6  &kp PLUS
+        &none         &none     &none     &none      &none             &kp N0      &kp N1      &kp N2  &kp N3  &kp DOT
+                                          &kp BSPC   &kp LSHFT         &kp SPACE   &tml L1 L0
       >;
     };
 
@@ -278,7 +278,7 @@
       bindings = <
         &kp LC(LG(Q))  &none      &none     &none      &none            &none         &kp C_PLAY    &kp C_PREV    &kp C_NEXT    &kp C_MUTE
         &kp LG(LS(X))  &sk LSHFT  &sk LCMD  &sk LCTRL  &none            &none         &kp LC(N1)    &kp LC(N2)    &kp LC(N3)    &kp LC(N4)
-        &none          &none      &none     &sk LALT   &none            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+        &none          &none      &none     &sk LALT   &none            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR
                                             &kp BSPC   &kp LSHFT        &kp SPACE     &to L0
       >;
     };
