@@ -7,56 +7,14 @@
 #define L2 2
 #define L3 3
 
-#define KEYS_R 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33
-#define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31
+#define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 23 24 25 26 27 28 35 36 37
+#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 29 30 31 32 33 34 38 39 40
 
 &sk {
   release-after-ms = <5000>;
 };
 
 / { 
-  macros {
-    /**
-     * Macro for typing the `!=` combination.
-     */
-    excl_eq: excl_eq {
-      label = "EXCL_EQ";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings = <&kp EXCL &kp EQUAL>;
-    };
-
-    /**
-     * Macro for typing the `[]` combination.
-     */
-    bkt_open_close: bkt_open_close {
-      label = "BKT_OPEN_CLOSE";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings = <&kp LBKT &kp RBKT>;
-    };
-
-    /**
-     * Macro for typing the `()` combination.
-     */
-    par_open_close: par_open_close {
-      label = "PAR_OPEN_CLOSE";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings = <&kp LPAR &kp RPAR>;
-    };
-
-    /**
-     * Macro for typing the `{}` combination.
-     */
-    brc_open_close: brc_open_close {
-      label = "BRC_OPEN_CLOSE";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings = <&kp LBRC &kp RBRC>;
-    };
-  };
-
   behaviors {
     /**
      * Left hand positional hold tap, used for home block modifiers
@@ -91,36 +49,6 @@
     };
 
     /**
-     * Left hand positional layer-tap, used for home block modifiers
-     */
-    lhrl: left_hand_positional_momentary_layer_tap {
-        compatible = "zmk,behavior-hold-tap";
-        label = "LEFT_POSITIONAL_MOMENTARY_LAYER_TAP";
-        #binding-cells = <2>;
-        flavor = "balanced";
-        tapping-term-ms = <300>;
-        quick-tap-ms = <200>;
-        global-quick-tap;
-        bindings = <&mo>, <&kp>;
-        hold-trigger-key-positions = <KEYS_R>;
-    };
-
-    /**
-     * Right hand positional layer-tap, used for home block modifiers
-     */
-    rhrl: right_hand_positional_momentary_layer_tap {
-        compatible = "zmk,behavior-hold-tap";
-        label = "RIGHT_POSITIONAL_MOMENTARY_LAYER_TAP";
-        #binding-cells = <2>;
-        flavor = "balanced";
-        tapping-term-ms = <300>;
-        quick-tap-ms = <200>;
-        global-quick-tap;
-        bindings = <&mo>, <&kp>;
-        hold-trigger-key-positions = <KEYS_L>;
-    };
-
-    /**
      * To-Layer on tap, Momentary-on-Hold behavior
      */
     tml: to_layer_tap_momentary_hold {
@@ -130,50 +58,6 @@
         flavor = "hold-preferred";
         tapping-term-ms = <300>;
         bindings = <&mo>, <&to>;
-    };
-
-    /**
-     * Key press `[` on single tap or key press `[]` on double tap.
-     */
-    td_bkt: tap_dance_bkt {
-      compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_BKT";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp RBKT>, <&bkt_open_close>;
-    };
-
-    /**
-     * Key press `(` on single tap or key press `()` on double tap.
-     */
-    td_par: tap_dance_par {
-      compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_PAR";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp RPAR>, <&par_open_close>;
-    };
-
-    /**
-     * Key press `{` on single tap or key press `{}` on double tap.
-     */
-    td_brc: tap_dance_brc {
-      compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_BRC";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp RBRC>, <&brc_open_close>;
-    };
-
-    /**
-     * Key press `!` on single tap or macro in `!=` on double tap.
-     */
-    td_equal: tap_dance_equal {
-      compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_EQUAL";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp EQUAL>, <&excl_eq>;
     };
 
     /**
@@ -192,43 +76,41 @@
     compatible = "zmk,combos";
 
     /**
-     * Key press `LCTRL + B` to enter tmux mode when keys 11 (S) and 12 (D) are tapped.
-     *
-     * Only enabled for layers 0 (base layer), 1 (icons and nums layers) and 2 (controls layer).
+     * Key press `LCTRL + B` to enter tmux mode when keys 15 (S) and 16 (D) are tapped.
      */
     tmux {
       timeout-ms = <20>;
-      key-positions = <11 12>;
+      key-positions = <15 16>;
       bindings = <&kp LC(B)>;
       layers = <0>;
     };
 
     /**
-     * Key press `ESC` when keys 12 (D) and 13 (F) are tapped.
+     * Key press `ESC` when keys 16 (D) and 17 (F) are tapped.
      */
     escape_key {
       timeout-ms = <20>;
       key-positions = <12 13>;
       bindings = <&kp ESC>;
-      layers = <0 2>;
+      layers = <0>;
     };
 
     /**
-     * Key press `TAB' when keys 17 (K) and 18 (L) are tapped.
+     * Key press `TAB' when keys 20 (K) and 21 (L) are tapped.
      */
     tab_key {
       timeout-ms = <20>;
-      key-positions = <17 18>;
+      key-positions = <20 21>;
       bindings = <&kp TAB>;
       layers = <0 2>;
     };
 
     /**
-     * Bring up emojis menu in OS X when keys 16 (J) and 17 (K) are tapped
+     * Bring up emojis menu in OS X when keys 19 (J) and 20 (K) are tapped
      */
     emojis_key {
       timeout-ms = <20>;
-      key-positions = <16 17>;
+      key-positions = <19 20>;
       bindings = <&kp LG(LC(SPACE))>;
       layers = <0>;
     };
@@ -243,7 +125,7 @@
     layer_0 {
       bindings = <
         &none &kp Q  &kp W       &kp E        &kp R         &kp T           &kp Y       &kp U         &kp I        &kp O       &kp P      &none
-        &none &kp A  &lhrl L2 S  &lhr LCMD D  &lhr LCTRL F  &kp G           &kp H       &rhr LCTRL J  &rhr LCMD K  &rhrl L2 L  &kp SEMI   &none
+        &none &kp A  &kp S       &lhr LCMD D  &lhr LCTRL F  &kp G           &kp H       &rhr LCTRL J  &rhr LCMD K  &kp L       &kp SEMI   &none
         &none &kp Z  &kp X       &kp C        &kp V         &kp B           &kp N       &kp M         &kp COMMA    &kp DOT     &kp SLASH  &none
                                  &none        &kp BSPC      &kp LSHFT       &kp SPACE   &mo L1        &none
       >;
@@ -254,9 +136,9 @@
      */
     layer_1 {
       bindings = <
-        &none  &kp EXCL  &kp AT     &kp HASH   &kp DOLLAR  &kp LBKT       &td_bkt      &kp PLUS   &kp MINUS  &kp ASTRK  &kp PRCNT  &none
-        &none  &kp AMPS  &kp UNDER  &kp DQT    &kp SQT     &kp LPAR       &td_par      &kp ENTER  &to L2     &to L3     &kp SEMI   &none
-        &none  &kp PIPE  &kp TILDE  &kp CARET  &kp GRAVE   &kp LBRC       &td_brc      &td_equal  &kp COMMA  &kp DOT    &td_slash  &none
+        &none  &kp EXCL  &kp AT     &kp HASH   &kp DOLLAR  &kp LBKT       &kp RBKT      &kp PLUS   &kp MINUS  &kp ASTRK  &kp PRCNT  &none
+        &none  &kp AMPS  &kp UNDER  &kp DQT    &kp SQT     &kp LPAR       &kp RPAR      &kp ENTER  &to L2     &to L3     &kp SEMI   &none
+        &none  &kp PIPE  &kp TILDE  &kp CARET  &kp GRAVE   &kp LBRC       &kp RBRC      &kp EQUAL  &kp COMMA  &kp DOT    &td_slash  &none
                                     &none      &kp BSPC    &kp LSHFT      &kp SPACE    &none
       >;
     };
