@@ -90,7 +90,7 @@
      */
     escape_key {
       timeout-ms = <20>;
-      key-positions = <12 13>;
+      key-positions = <16 17>;
       bindings = <&kp ESC>;
       layers = <0>;
     };
