@@ -1,0 +1,151 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define L0 0
+#define L1 1
+#define L2 2
+#define L3 3
+
+#define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38
+#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41
+
+/ { 
+  behaviors {
+    /**
+     * Left hand positional hold tap, used for home block modifiers
+     */
+    lhr: left_hand_positional_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        label = "LEFT_POSITIONAL_HOLD_TAP";
+        #binding-cells = <2>;
+        flavor = "balanced";
+        tapping-term-ms = <300>;
+        quick-tap-ms = <200>;
+        global-quick-tap;
+        bindings = <&kp>, <&kp>;
+        hold-trigger-key-positions = <KEYS_R>;
+        hold-trigger-on-release;
+    };
+
+    /**
+     * Right hand positional hold tap, used for home block modifiers
+     */
+    rhr: right_hand_positional_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        label = "RIGHT_POSITIONAL_HOLD_TAP";
+        #binding-cells = <2>;
+        flavor = "balanced";
+        tapping-term-ms = <300>;
+        quick-tap-ms = <200>;
+        global-quick-tap;
+        bindings = <&kp>, <&kp>;
+        hold-trigger-key-positions = <KEYS_L>;
+        hold-trigger-on-release;
+    };
+  };
+
+  combos {
+    compatible = "zmk,combos";
+
+    /**
+     * Key press `LCTRL + B` to enter tmux mode when keys (S) and (D) are tapped.
+     * Only enabled on Alpha layer.
+     */
+    tmux {
+      timeout-ms = <20>;
+      key-positions = <14 15>;
+      bindings = <&kp LC(B)>;
+      layers = <0>;
+    };
+
+    /**
+     * Key press `ESC` when keys (D) and (F) are tapped.
+     * Only enabled on Alpha layer.
+     */
+    escape_key {
+      timeout-ms = <20>;
+      key-positions = <15 16>;
+      bindings = <&kp ESC>;
+      layers = <0>;
+    };
+
+    /**
+     * Key press `TAB' when keys (K) and (L) are tapped.
+     * Enabled on Alpha and NumDir layer.
+     */
+    tab_key {
+      timeout-ms = <20>;
+      key-positions = <20 21>;
+      bindings = <&kp TAB>;
+      layers = <0 2>;
+    };
+
+    /**
+     * Bring up emojis menu in OS X when keys (J) and (K) are tapped
+     * Only enabled on Alpha layer.
+     */
+    emojis_key {
+      timeout-ms = <20>;
+      key-positions = <19 20>;
+      bindings = <&kp LG(LC(SPACE))>;
+      layers = <0>;
+    };
+  };
+
+  keymap {
+    compatible = "zmk,keymap";
+
+    /**
+     * Alpha layer (L0)
+     */
+    layer_0 {
+      label = "ALPHA";
+      bindings = <
+        &none &kp Q &kp W       &kp E       &kp R        &kp T       &kp Y &kp U        &kp I       &kp O       &kp P     &none
+        &none &kp A &lhr LALT S &lhr LCMD D &lhr LCTRL F &kp G       &kp H &rhr LCTRL J &rhr LCMD K &rhr LALT L &kp SEMI  &none
+        &none &kp Z &kp X       &kp C       &kp V        &kp B       &kp N &kp M        &kp COMMA   &kp DOT     &kp SLASH &none
+                                &mo L2      &kp BSPC     &kp LSHFT   &kp SPACE          &mo L1      &sl L3
+      >;
+    };
+
+    /**
+     * Symbols layer (L1)
+     */
+    layer_1 {
+      label = "SYMBOLS";
+      bindings = <
+        &none &kp EXCL &kp AT    &kp HASH  &kp DOLLAR &kp LBKT   &kp RBKT  &kp PLUS  &kp MINUS &kp ASTRK &kp PRCNT &none
+        &none &kp AMPS &kp UNDER &kp DQT   &kp SQT    &kp LPAR   &kp RPAR  &kp ENTER &kp DEL   &kp BSLH  &kp SEMI  &none
+        &none &kp PIPE &kp TILDE &kp CARET &kp GRAVE  &kp LBRC   &kp RBRC  &kp EQUAL &kp COMMA &kp DOT   &kp SLASH &none
+                                 &none     &kp BSPC   &kp LSHFT  &kp SPACE &none     &none
+      >;
+    };
+
+    /**
+     * Number and directions layer (L2)
+     */
+    layer_2 {
+      label = "NUMDIR";
+      bindings = <
+        &none &none        &none    &kp UP   &none     &none          &kp ASTRK  &kp N7 &kp N8 &kp N9 &kp MINUS &none
+        &none &kp LA(LEFT) &kp LEFT &kp DOWN &kp RIGHT &kp LA(RIGHT)  &kp SLASH  &kp N4 &kp N5 &kp N6 &kp PLUS  &none
+        &none &none        &none    &none    &none     &none          &kp N0     &kp N1 &kp N2 &kp N3 &kp DOT   &none
+                                    &to L0   &kp BSPC  &kp LSHFT      &kp SPACE  &to L2 &none
+      >;
+    };
+
+    /**
+     * Controls layer that contains OS controls (bluetooth, mute, play, etc.) (L3)
+     */
+    layer_3 {
+      label = "SYSTEM";
+      bindings = <
+        &none &kp LC(LG(Q)) &none &none         &none          &kp PG_UP  &kp C_VOL_UP &kp C_PLAY &kp C_PREV &kp C_NEXT &none      &none
+        &none &none         &none &kp LG(LS(X)) &kp LG(LS(N4)) &kp PG_DN  &kp C_VOL_DN &kp LC(N1) &kp LC(N2) &kp LC(N3) &kp LC(N4) &none
+        &none &none         &none &none         &none          &none      &kp C_MUTE   &none      &bt BT_PRV &bt BT_NXT &bt BT_CLR &none
+                            &none &kp BSPC      &kp LSHFT      &kp SPACE  &to L0       &none
+      >;
+    };
+  };
+};
