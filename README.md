@@ -7,7 +7,24 @@ A 36 keys split keyboard layout implemented with [ZMK](https://zmk.dev/).
 The layout is designed for a keyboard with 3x5 main keys plus 3 thumb keys per split
 (e.g. [Corne Keyboard](https://github.com/foostan/crkbd)) and optimized to use VIM and tmux in macOS.
 
+## Layout
+
+The layout design tries to adhere to the following concepts as much as possible:
+
+- Familiarity with a standard keyboard
+- Avoid complexity as much as possible
+- Ergonomic design
+- Wireless ready
+
 ![keyboard-layout](images/layout.png)
+
+### Legend
+
+- PU/PD: Page Up/Page Down
+- 1P: 1Password
+- D1/D2/D3/D4: macOS shortcuts for navigating virtual desktops
+- BP/BN/BC: Bluetooth Previous/Next/Clear
+- tmux: Ctrl + B (tmux shortcut)
 
 ## References
 
